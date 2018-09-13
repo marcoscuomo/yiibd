@@ -8,8 +8,17 @@
 
 namespace app\controllers;
 
+use yii\web\Controller;
 
-class PedidosController
-{
+class PedidosController extends Controller {
+
+    public function actionIndex(){
+
+        $query = Pedidos::find();
+        $pedidos = $query->all();
+
+        return $this->render('index', ['pedidos' => $pedidos]);
+
+    }
 
 }
